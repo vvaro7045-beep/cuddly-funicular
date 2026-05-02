@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman PMR MULA SDN 153 Pekanbaru</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+        .header img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+        h2 { color: #d32f2f; margin-bottom: 5px; }
+        h3 { margin-top: 0; color: #333; font-weight: normal; }
+        .input-group { margin: 25px 0; }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus { border-color: #d32f2f; }
+        button {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover { background-color: #b71c1c; }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            font-weight: bold;
+        }
+        .lulus { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+        .tidak-lulus { background-color: #ffebee; color: #c62828; border: 1px solid #ffcdd2; }
+        .footer { margin-top: 30px; font-size: 12px; color: #777; border-top: 1px solid #eee; pt: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h2>PMR MULA</h2>
+        <h3>SDN 153 KOTA PEKANBARU</h3>
+        <p>TA 2026/2027</p>
+    </div>
+
+    <div class="input-group">
+        <label for="namaSiswa">Masukkan Nama Lengkap Siswa:</label>
+        <input type="text" id="namaSiswa" placeholder="Contoh: Alaric Dzakhwan" autocomplete="off">
+        <button onclick="cekKelulusan()">Cek Hasil</button>
+    </div>
+
+    <div id="result"></div>
+
+    <div class="footer">
+        <p>Pekanbaru, Mei 2026<br>
+        <strong>Ketua PMR MULA SDN 153 Pekanbaru</strong></p>
+    </div>
+</div>
+
+<script>
+    function cekKelulusan() {
+        const namaInput = document.getElementById('namaSiswa').value.trim().toLowerCase();
+        const resultDiv = document.getElementById('result');
+        
+        // Daftar nama yang lulus
+        const daftarLulus = [
+            "alaric dzakhwan",
+            "muhammad rafli alfatih",
+            "alika nayla putri"
+        ];
+
+        if (namaInput === "") {
+            alert("Silakan masukkan nama terlebih dahulu!");
+            return;
+        }
+
+        resultDiv.style.display = "block";
+
+        if (daftarLulus.includes(namaInput)) {
+            resultDiv.className = "lulus";
+            resultDiv.innerHTML = "🎉 SELAMAT! Anda dinyatakan LULUS seleksi PMR MULA.";
+        } else {
+            resultDiv.className = "tidak-lulus";
+            resultDiv.innerHTML = "🙏 MOHON MAAF, Anda dinyatakan TIDAK LULUS seleksi tahun ini.";
+        }
+    }
+</script>
+
+</body>
+</html>
